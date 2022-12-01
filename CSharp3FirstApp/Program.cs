@@ -215,9 +215,355 @@
     uint g2 = (uint) g;
 
     int a1 = 33;
-    int b1 = 600;
+    int b1 = 100;
     byte c1 = checked((byte)(a1 + b1));
     Console.WriteLine(c1);
+}
+#endregion
+
+#region условные операторы if
+{
+    if(true/*условие*/)
+    {
+        // что делать, емли условие выполнено
+    }
+
+    if (true/*условие*/)
+    {
+        // что делать, емли условие выполнено
+    }
+    else // необязательная часть
+    {
+        // что делать, если условие не выволнено
+    }
+
+    if(true/*условие*/)
+    {
+        // что делать, емли условие выполнено
+    }
+    else if(true/*условие2*/) // необязательная часть
+    {
+        // что делать, если условие 1 не выполнено, а условие 2 выполнено
+    }
+    else // необязательная часть
+    {
+        // что делать, если условие не выволнено
+    }
+
+    // пример
+    var a = 10;
+    if(a > 8)
+    {
+        Console.WriteLine("Число а меньше 8");
+    }
+
+    // Альттернативно, толкьо в случае одного выражения внутри блока
+    var b = 10;
+    if (b < 8)
+        Console.WriteLine("Число b меньше 8");
+
+    var c = 10;
+    if (c < 8)
+    {
+        Console.WriteLine("Число c меньше 8");
+        Console.WriteLine("dsadasdas");
+    }
+
+    if(c > 2 && c < 4) // && = и
+    {
+
+    }
+
+    if(a < 2 || a > 5) // || = или
+    {
+
+    }
+
+    string d = null;
+    if(d != null && d.Length > 10) // == проверка на равно 
+        // != не равно
+    {
+
+    }
+
+
+    if ((a < 2 || a > 10) && a > 0)
+    {
+
+    }
+
+    bool res = (a < 2 || a > 10) && a > 0;
+    if(res)
+    {
+
+    }
+}
+#endregion
+
+#region условные операторы: if пример
+//{
+//    Console.WriteLine("Как выше имя?");
+//    var name = Console.ReadLine();
+
+//    Console.WriteLine("Укажите пол (м/ж)");
+//    var gender = Console.ReadLine();
+
+//    Console.WriteLine("Сколько вам лет?");
+//    var strAge = Console.ReadLine();
+//    var age = Convert.ToInt32(strAge);
+
+//    var maxAge = 10;
+
+//    //string prefix = "Уважаемое";
+//    //if (age > maxAge && gender == "м")
+//    //    prefix = "Уважаемый";
+//    //else if (age > maxAge && gender == "ж")
+//    //    prefix = "Уважаемая";
+//    //else if (age <= maxAge)
+//    //    prefix = "Привет";
+
+//    string prefix = "Уважаемое";
+//    if (age > maxAge)
+//    {
+//        if (gender == "м")
+//            prefix = "Уважаемый";
+//        else if (gender == "ж")
+//            prefix = "Уважаемая";
+//    }
+//    else
+//        prefix = "Привет";
+
+//    Console.WriteLine($"{prefix}, {name}, добро пожаловать");
+//}
+#endregion
+
+#region условные опреаторы - тернарный
+{
+    // условие ? что делать, есkи правда : что делать, если ложь;
+    var a = 10;
+    var numberDescr = a % 2 == 0 ? "четное" : "нечетное";
+    Console.WriteLine(numberDescr);
+
+    var numberDescr2 = "";
+    if (a % 2 == 0)
+        numberDescr2 = "четное";
+    else
+        numberDescr2 = "нечетное";
+}
+#endregion
+
+#region условные операторы - тернарный: пример
+if(false)
+{
+    Console.WriteLine("Введите любое неотрицательное целое число");
+    var strNumber1 = Console.ReadLine();
+    var number1 = Convert.ToInt32(strNumber1);
+
+    Console.WriteLine("Введите еще одно любое неотрицательное " +
+        $"целое число большее {number1}");
+    var strNumber2 = Console.ReadLine();
+    var number2 = Convert.ToInt32(strNumber2);
+
+    var isDividing = ( number2 % number1 == 0 ? "делится" : "не делится" );
+    Console.WriteLine($"Число {number2} {isDividing} {number1}");
+}
+#endregion  
+
+#region Условие switch
+{
+    //switch(переменная)
+    //{
+    //    case Значение1:
+    //        // что делать в случае, если переменная == Значение1
+    //        break;
+    //    case Значение2:
+    //        // что делать в случае, если переменная == Значение2
+    //        break;
+    //    case Значение3:
+    //        // что делать в случае, если переменная == Значение3
+    //        break;
+    //    default:
+    //        // что делать в случае, если не выволнен ни один их кейсов
+    //}
+}
+#endregion
+
+#region Условие switch: пример
+if(false)
+{
+    Console.WriteLine("Какой сегодня день недели?");
+    var day = Console.ReadLine();
+
+    string msg = "";
+    //switch (day)
+    //{
+    //    case "Понедельник":
+    //        msg = "До выходных осталось 5 дней =(";
+    //        break;
+    //    case "Вторник":
+    //        msg = "До выходных осталось 4 дня =(";
+    //        break;
+    //    case "Среда":
+    //        msg = "До выходных осталось 3 дня =/";
+    //        break;
+    //    case "Четверг":
+    //        msg = "До выходных осталось 2 дней =|";
+    //        break;
+    //    case "Пятница":
+    //        msg = "До выходных осталось 1 день =)";
+    //        break;
+    //    case "Суббота":
+    //        msg = "Ура! Первый выходной";
+    //        break;
+    //    case "Воскресенье":
+    //        msg = "Ура! Второй выходной";
+    //        break;
+    //    default:
+    //        msg = "Непонятно, что за день";
+    //        break;
+    //}
+    switch (day)
+    {
+        case "Понедельник":
+        case "Вторник":
+        case "Среда":
+        case "Четверг":
+        case "Пятница":
+            msg = "Рабочий день";
+            break;
+        case "Суббота":
+        case "Воскресенье":
+            msg = "Выходной";
+            break;
+        default:
+            msg = "Непонятно, что за день";
+            break;
+    }
+    Console.WriteLine(msg);
+}
+#endregion
+
+#region switch: новый синтаксис
+if(false)
+{
+    Console.WriteLine("Какой сегодня день недели?");
+    var day = Console.ReadLine();
+    day = day.ToLower();
+
+    var msg = day switch
+    {
+        // значение => что возвращаеть в случае совпдаения
+        "понедельник" => "До выходных осталось 5 дней =(",
+        "вторник" => "До выходных осталось 4 дня =(",
+        "среда" => "До выходных осталось 3 дня =/",
+        "четверг" => "До выходных осталось 2 дней =|",
+        "пятница" => "До выходных осталось 1 день =)",
+        "суббота" => "Ура! Первый выходной",
+        "воскресенье" => "Ура! Второй выходной",
+        _ => "Непонятно, что за день", // _ = default (ни одно из значений не подошло)
+    };
+
+    //var workDayMsg = "Рабочий день";
+    //var freeDayMsg = "Выходной день";
+
+    //var msg = day switch
+    //{
+    //    "Понедельник" => workDayMsg,
+    //    "Вторник" => workDayMsg,
+    //    "Среда" => workDayMsg,
+    //    "Четверг" => workDayMsg,
+    //    "Пятница" => workDayMsg,
+    //    "Суббота" => freeDayMsg,
+    //    "Воскресенье" => freeDayMsg,
+    //    _ => "Непонятно, что за день",
+    //};
+
+    Console.WriteLine(msg);
+}
+#endregion
+
+#region Циклы: while
+{
+    // сначала проверяется условие
+    // если правда, потом выполняется тело
+    // опять проверяется условие
+    // если правда, потом выполняется тело
+    // ...
+    while (false/*Условие*/)
+    {
+        // тело цикла
+    } 
+    
+    // выход из цикла:
+    // 1) условие стало ложью
+    // 2) в теле цикла команда break
+    // 3) в теле цикла команда return
+    while(true) // бесконечный цикл
+    {
+        break;
+    }
+}
+#endregion
+
+#region while: пример
+{
+    var maxValue = 2000;
+    var value = 0;
+    var number = 0;
+    while(value < maxValue)
+    {
+        value += number;
+        number++;
+    }
+    Console.WriteLine($"Сумма первых {number} чисел = {value}");
+}
+#endregion
+
+#region Циклы: do while
+{
+    // сначала делаем
+    // потом проверяем
+    //do
+    //{
+
+    //}
+    //while (условие);
+
+    //do
+    //{
+    //    Console.WriteLine("Как ваше имя?");
+    //    var name = Console.ReadLine();
+
+    //    if (String.IsNullOrEmpty(name))
+    //    {
+    //        Console.WriteLine("Неправильный ввод");
+    //        continue; // завершает итерацию и переходит к условию
+    //    }
+
+    //    Console.WriteLine($"Привет, {name}");
+    //    break;
+    //}
+    //while (true);
+
+    string? name = null;
+    do
+    {
+        Console.WriteLine("Как ваше имя?");
+        name = Console.ReadLine();
+    }
+    while (String.IsNullOrEmpty(name));
+
+    string? gender = null;
+    do
+    {
+        Console.WriteLine("Ваш пол (м / ж)?");
+        gender = Console.ReadLine();
+    }
+    while (gender == null || (gender != "м" && gender != "ж"));
+
+    var prefix = gender == "м" ? "Уважаемый" : "Уважаемая";
+    Console.WriteLine($"{prefix}, {name}");
+    Console.WriteLine("Finish");
 }
 #endregion
 
