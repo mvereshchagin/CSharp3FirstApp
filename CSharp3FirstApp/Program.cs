@@ -519,52 +519,348 @@ if(false)
 }
 #endregion
 
-#region Циклы: do while
+if (false)
 {
-    // сначала делаем
-    // потом проверяем
-    //do
-    //{
-
-    //}
-    //while (условие);
-
-    //do
-    //{
-    //    Console.WriteLine("Как ваше имя?");
-    //    var name = Console.ReadLine();
-
-    //    if (String.IsNullOrEmpty(name))
-    //    {
-    //        Console.WriteLine("Неправильный ввод");
-    //        continue; // завершает итерацию и переходит к условию
-    //    }
-
-    //    Console.WriteLine($"Привет, {name}");
-    //    break;
-    //}
-    //while (true);
-
-    string? name = null;
-    do
+    #region Циклы: do while
     {
-        Console.WriteLine("Как ваше имя?");
-        name = Console.ReadLine();
-    }
-    while (String.IsNullOrEmpty(name));
+        // сначала делаем
+        // потом проверяем
+        //do
+        //{
 
-    string? gender = null;
-    do
-    {
-        Console.WriteLine("Ваш пол (м / ж)?");
-        gender = Console.ReadLine();
-    }
-    while (gender == null || (gender != "м" && gender != "ж"));
+        //}
+        //while (условие);
 
-    var prefix = gender == "м" ? "Уважаемый" : "Уважаемая";
-    Console.WriteLine($"{prefix}, {name}");
-    Console.WriteLine("Finish");
+        //do
+        //{
+        //    Console.WriteLine("Как ваше имя?");
+        //    var name = Console.ReadLine();
+
+        //    if (String.IsNullOrEmpty(name))
+        //    {
+        //        Console.WriteLine("Неправильный ввод");
+        //        continue; // завершает итерацию и переходит к условию
+        //    }
+
+        //    Console.WriteLine($"Привет, {name}");
+        //    break;
+        //}
+        //while (true);
+
+        string? name = null;
+        do
+        {
+            Console.WriteLine("Как ваше имя?");
+            name = Console.ReadLine();
+        }
+        while (String.IsNullOrEmpty(name));
+
+        string? gender = null;
+        do
+        {
+            Console.WriteLine("Ваш пол (м / ж)?");
+            gender = Console.ReadLine();
+        }
+        while (gender == null || (gender != "м" && gender != "ж"));
+
+        var prefix = gender == "м" ? "Уважаемый" : "Уважаемая";
+        Console.WriteLine($"{prefix}, {name}");
+        Console.WriteLine("Finish");
+    }
+    #endregion
 }
+
+#region for
+{
+    //for(/*выражение при старте*/; 
+    //    /*Варжение, которое проверяется на каждой итерации*/; 
+    //    /*действие на каждой итерации*/)
+    //{
+
+    //}
+
+    int i = 0;
+    for(i = 0; i < 10; i++)
+    {
+
+    }
+
+    for (int j = 0; j < 10; j++)
+    {
+
+    }
+
+    for (var j = 0; j < 10; j++)
+    {
+
+    }
+
+    var sum = 0;
+    var maxNumber = 50;
+    for (var k = 0; k < maxNumber; k++)
+        sum += k;
+    Console.WriteLine($"0 + ... + {maxNumber - 1} = {sum}");
+
+    int counter = 0;
+    for (Console.WriteLine("Start loop"); true; Console.WriteLine($"Вполшняется итерация {counter}"))
+    {
+        counter++;
+        if (counter > 10)
+            break;
+    }
+
+    for (var s = 0; s < 20; s += 2)
+        Console.WriteLine(s);
+}
+#endregion
+
+#region Цикл foreach
+{
+    // перебирает элементы коллеции
+    //foreach(тип_переменной имя_переменной in коллекция)
+    //{
+
+    //}
+
+    var str = "Жил-был у бабушки серенький козлик";
+
+    Console.WriteLine("");
+    Console.WriteLine("=========== foreach ======================");
+    foreach (var s in str)
+        Console.Write($"символ {s}\t");
+
+    Console.WriteLine("");
+    Console.WriteLine("=========== for ======================");
+    for (var i = 0; i < str.Length; i++)
+    {
+        Console.Write($"символ {str[i]}\t");
+    }
+
+    Console.WriteLine("");
+    Console.WriteLine("=========== while ======================");
+    var j = 0;
+    while (j < str.Length)
+    {
+        Console.Write($"символ {str[j]}\t");
+        j++;
+    }
+}
+#endregion
+
+#region Массивы
+{
+    int[] numbers; // объявление массива
+    numbers = new int[5]; // numbers - массив их пяти чисел типа int
+
+    int[] numbers2 = new int[5]; // объявление с выделением памяти
+    numbers[0] = 23; // задаем элемент массива с индексом 0
+    numbers[1] = 12; // задаем элемент массива с индексом 1
+    // numbers[5] = 12; // элемента с индексом 5 не существует
+    var number3 = numbers[3]; // получение значения элемента массива с индексом 3
+
+    var numbers3 = new int[10]; // создание массива с 10 элементами int
+    numbers3[0] = 1;
+    numbers3[1] = 4;
+    numbers3[2] = 9;
+    numbers3[3] = 12;
+
+    int[] numbers4 = new int[5] { 2, 5, 6, 7, 8 }; // создание с инифицализацией элементов
+    int[] numbers5 = { 2, 5, 6, 7, 8 }; // создание с инифицализацией элементов
+    object[] numbers6 = { 2, 5, 6, 7, 8 };
+    // var numbers = { 1, 2, 4 };// нет работает
+    var numbers7 = new int[] { 1, 2, 4, 23, 45 };
+
+    int[] countNumbers = { 23, 45, 11, 56, 22, 56, 87, 3, 34, 67 };
+    int max = Int32.MinValue;
+    int min = Int32.MaxValue;
+    int sum = 0;
+    foreach (var number in countNumbers)
+    {
+        if (number > max)
+            max = number;
+        if (number < min)
+            min = number;
+        sum += number;
+    }
+    Console.Write("\r\n");
+    Console.WriteLine($"Max number in array {max}");
+    Console.WriteLine($"Min number in array {min}");
+    var avg = (float) sum / countNumbers.Length;
+    Console.WriteLine($"Avg value in array {avg}");
+
+    Console.WriteLine("Loop array using for");
+    max = Int32.MinValue;
+    int maxIndex = -1;
+    min = Int32.MaxValue;
+    int minIndex = -1;
+    sum = 0;
+    for(var i = 0; i < countNumbers.Length; i++)
+    {
+        var number = countNumbers[i];
+        if (number > max)
+        {
+            max = number;
+            maxIndex = i;
+        }
+        if (number < min)
+        {
+            min = number;
+            minIndex = i;
+        }
+        sum += number;
+    }
+    Console.WriteLine($"Max number in array {max} at position {maxIndex}");
+    Console.WriteLine($"Min number in array {min} at position {minIndex}");
+    avg = (float)sum / countNumbers.Length;
+    Console.WriteLine($"Avg value in array {avg}");
+
+    var dsum = 0f;
+    foreach(var number in countNumbers)
+    {
+        var val = number - avg;
+        dsum += val * val;
+    }
+    var d = dsum / countNumbers.Length;
+
+    dsum = 0f;
+    for(int i = 0; i < countNumbers.Length; i++)
+    {
+        var val = countNumbers[i] - avg;
+        dsum += val * val;
+    }
+}
+
+{
+    string[] names = { "Валерия", "Александра", "Юлия", "Людмила", "Клавдия", "Валентина", "Вера" };
+    foreach(var name in names)
+    {
+        if (name.StartsWith("В"))
+            Console.WriteLine(name);
+    }
+
+    var lastName = names[names.Length - 1];
+    Console.WriteLine($"Последний элемент: {lastName}");
+
+    var lastName2 = names[^1]; // -1 первый элемент
+    var prevLastName = names[^2];
+    Console.WriteLine($"Предпоследний элемент: {prevLastName}");
+
+    Console.WriteLine("Элементы 2, 3, 4");
+    var names25 = names[2..5];
+    foreach (var name in names25)
+        Console.WriteLine(name);
+
+    var res = names[2..^2]; // со второго по предпоследний
+}
+#endregion
+
+#region Многомерные массивы
+{
+    int[,] matrix = new int[3, 5];
+    matrix[0, 0] = 10;
+    matrix[1, 2] = 23;
+
+    int[,] matrix2;
+
+    int[,] a = { { 2, 5, 7, 8 }, { 34, 23, 12, 2 }, { 1, 1, 2, 5} }; // array 3x4
+    /* 
+        2   5   7   8
+        34  23  12  2
+        1   1   2   5
+     */
+
+    var dim1 = a.GetLength(0);
+    var dim2 = a.GetLength(1);
+    Console.WriteLine($"{dim1}x{dim2}");
+
+    var dim11 = a.GetUpperBound(0);
+
+    var sum = 0;
+    for (int i = 0; i < a.GetLength(0); i++)
+        for (int j = 0; j < a.GetLength(1); j++)
+            sum += a[1, j];
+    Console.WriteLine($"The sum of elements in array is {sum}");
+
+    int[,,,] b = {
+        { 
+            { { 1, 2, 3}, { 4, 4, 6}, { 2, 2, 5 } }, 
+            { { 8, 1, 0 }, { 1, 1, 1}, { 4, 5, 4} } 
+        },
+        { 
+            { { 2, 3, 1}, { 1, 1, 1}, { 4, 5, 6 } }, 
+            { { 1, 0, 5}, { 8, 1, 11}, { 1, 2, 3} } 
+        },
+        { 
+            { { 1, 2, 4}, { 2, 4, 5}, { 6, 2, 1 } }, 
+            { { 2, 2, 2}, { 1, 1, 1}, { 0, 0, 0 } } 
+        }
+    }; // 3x2x3x3
+    var b1221 = b[1, 1, 2, 1];
+}
+#endregion
+
+#region массивы массивов (jagged array)
+{
+    int[][] jagged = new int[4][];
+    jagged[0] = new int[]{ 1, 2, 4 };
+    jagged[1] = new int[] { 3, 5, 2, 10, 12 };
+    jagged[2] = new int[] { 1, 1 };
+    jagged[3] = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+
+    /*
+        1   2   3
+        3   5   2   10  12
+        1   1
+        2   3   4   5   6   7   8
+     */
+
+    var sum = 0;
+    for(int i = 0; i < jagged.Length; i++)
+    {
+        var arr = jagged[i];
+        for (var j = 0; j < arr.Length; j++)
+            sum += arr[j];
+    }
+    Console.WriteLine($"Сумма всех элементов равна {sum}");
+
+    var ss = jagged[3][1..4];
+    foreach (var n in ss)
+        Console.WriteLine(n);
+}
+#endregion
+
+#region functions
+//тип_возвращаемого_значения название_фцнкции(параметры функции)
+//{
+//    тело функции
+//}
+//тип_возвращаемого_значения название_фцнкции(тип_параметра1 название_параметра1, 
+//    тип_парметра2 название_парметра2)
+//{
+
+//}
+
+// вызов функции
+PrintHello();
+PrintHello();
+PrintHello();
+
+PrintHello2("Vasya");
+PrintHello2("Petya");
+PrintHello2("Olga");
+
+// определили функцию с названием PrintHello, которая не принимает параметров и ничего не возвращает
+void PrintHello()
+{
+    Console.WriteLine("Hello");
+}
+
+void PrintHello2(string name)
+{
+    Console.WriteLine($"Hello, {name}");
+}
+
+
 #endregion
 
 
